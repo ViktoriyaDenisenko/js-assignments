@@ -22,7 +22,7 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(value1, value2) {
-    throw new Error('Not implemented');
+    return value1 + value2;
 }
 
 
@@ -38,7 +38,7 @@ function concatenateStrings(value1, value2) {
  *   ''      => 0
  */
 function getStringLength(value) {
-    throw new Error('Not implemented');
+    return value.length;
 }
 
 /**
@@ -55,7 +55,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-    throw new Error('Not implemented');
+    return (`Hello, ${firstName} ${lastName}!`);
 }
 
 /**
@@ -69,7 +69,7 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-    throw new Error('Not implemented');
+    return value.slice(value.indexOf(",") + 2, -1);
 }
 
 
@@ -84,7 +84,8 @@ function extractNameFromTemplate(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
-    throw new Error('Not implemented');
+    return value.charAt(0);
+    // return value[0];
 }
 
 /**
@@ -99,7 +100,7 @@ function getFirstChar(value) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(value) {
-    throw new Error('Not implemented');
+    return value.trim();
 }
 
 /**
@@ -114,7 +115,7 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(value, count) {
-    throw new Error('Not implemented');
+    return value.repeat(count);
 }
 
 /**
@@ -145,7 +146,7 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
-    throw new Error('Not implemented');
+    return str.slice(1, -1);
 }
 
 
@@ -160,7 +161,7 @@ function unbracketTag(str) {
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
 function convertToUpperCase(str) {
-    throw new Error('Not implemented');
+    return str.toUpperCase();
 }
 
 /**
@@ -174,7 +175,7 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-    throw new Error('Not implemented');
+    return str.split(";");
 }
 
 /**
@@ -201,7 +202,49 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-    throw new Error('Not implemented');
+    var w = 0, h = 0;
+    var rectangle;
+    if (w == 0 && h == 0) {
+        rectangle = '┌';
+        w++;
+    }
+    while (w<width-1 && h == 0){
+        rectangle += '─';
+        w++;
+    }
+    if (w==width-1 && h==0){
+        rectangle += '┐\n';
+        h++;
+        w=0;
+    }
+    while (h!=height-1) {
+        if (w == 0 && h < height - 1) {
+            rectangle += '│';
+            w++;
+        }
+        while (w < width - 1 && h < height - 1) {
+            rectangle += ' ';
+            w++;
+        }
+        if (w == width - 1 && h < height - 1) {
+            rectangle += '│\n';
+            w = 0;
+            h++;
+        }
+    }
+    if (w==0 && h==height-1){
+        rectangle += '└';
+        w++;
+    }
+    while (w<width-1 && h == height-1){
+        rectangle += '─';
+        w++;
+    }
+    if (w==width-1 && h==height-1){
+        rectangle += '┘\n';
+
+    }
+    return rectangle;
 }
 
 
@@ -221,6 +264,9 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
+    // var firstAlphabet = "ABCDEFGHIJKLM";
+    // var secondAlphabet = "NOPQRSTUVWXYZ"; 
+
     throw new Error('Not implemented');
 }
 
@@ -238,7 +284,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-    throw new Error('Not implemented');
+    return (typeof value == "string" || value instanceof String ? true : false);
 }
 
 
